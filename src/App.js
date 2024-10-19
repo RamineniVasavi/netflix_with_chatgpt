@@ -1,10 +1,8 @@
 import './App.css';
-
+import Body from './components/Body';
 function App() {
   return (
-    <div className="p-2">
-     <h2 className='font-bold'>Hello world</h2>
-    </div>
+   <Body/>
   );
 }
 
