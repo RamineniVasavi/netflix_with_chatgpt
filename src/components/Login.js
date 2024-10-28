@@ -1,9 +1,26 @@
-import React, { useState } from 'react'
+import React, { useRef, useState } from 'react'
 import Header from './Header'
+import { FormValidation,Namevalidation } from '../utils/FormValidation'
 const Login = () => {
   const [isSignIn,setIsSignIn]=useState(true);
+  const [errorMessage,setErrorMessage]=useState("");
   const SignHandler=()=>{
     setIsSignIn(!isSignIn);
+    setErrorMessage("");
+  }
+  const email=useRef(null);
+  const password=useRef(null);
+  const name=useRef(null);
+  const FormValidator=()=>{
+      if(!isSignIn){
+      setErrorMessage(FormValidation(email.current.value,password.current.value));
+      if(errorMessage===null || errorMessage==="Enter Name"){
+      setErrorMessage(Namevalidation(name.current.value));
+      }
+    }
+    else{
+    setErrorMessage(FormValidation(email.current.value,password.current.value));
+    }
   }
   return (
     <div >
@@ -11,12 +28,13 @@ const Login = () => {
       <Header />
       <img src="https://assets.nflxext.com/ffe/siteui/vlv3/7c0e18aa-2c95-474d-802e-7f30e75dcca4/web/IN-en-20241014-TRIFECTA-perspective_e7121311-c11e-4809-a3e6-22abffa33569_small.jpg"  alt="Background image"></img>
     </div>
-    <form className='p-10 absolute w-3/12 border border-black  top-[35%] right-[37%] text-white bg-opacity-80 bg-black'>
+    <form onClick={(e)=>e.preventDefault()} className='p-10 absolute w-3/12 border border-black  top-[35%] right-[37%] text-white bg-opacity-80 bg-black'>
       <h2 className='font-bold text-3xl mx-2 py-3'>{isSignIn?"Sign In":"Sign Up"}</h2>
-      {!isSignIn &&<input className='p-3 my-4 mx-2 w-full border border-black rounded-sm bg-gray-600' placeholder='Full Name'></input>}
-      <input type="text" placeholder='Email Address' className="p-3 my-4 mx-2 w-full border border-black rounded-sm bg-gray-600"></input>
-      <input type="password" placeholder='Password' className='p-3 my-4 mx-2 w-full border border-black rounded-sm bg-gray-600'></input>
-      <button className='p-3 my-4 mx-2 w-full bg-red-500 rounded-sm'>{isSignIn?"Sign In":"Sign Up"}</button>
+      {!isSignIn &&<input ref={name} className='p-3 my-4 mx-2 w-full border border-black rounded-sm bg-gray-600' placeholder='Full Name'></input>}
+      <input ref={email} type="text" placeholder='Email Address' className="p-3 my-4 mx-2 w-full border border-black rounded-sm bg-gray-600"></input>
+      <input ref={password} type="password" placeholder='Password' className='p-3 my-4 mx-2 w-full border border-black rounded-sm bg-gray-600'></input>
+      {errorMessage&& <p className=' mx-2 text-red-500'>{errorMessage}</p>}
+      <button onClick={FormValidator} className='p-3 my-4 mx-2 w-full bg-red-500 rounded-sm'>{isSignIn?"Sign In":"Sign Up"}</button>
       <p className='cursor-pointer' onClick={SignHandler}>{isSignIn?"New to Netflix? Sign Up Now":"Already registered? Sign In Now."}</p>
     </form>
     </div>
