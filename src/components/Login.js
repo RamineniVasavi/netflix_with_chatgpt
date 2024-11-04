@@ -3,11 +3,9 @@ import Header from './Header'
 import { FormValidation,Namevalidation } from '../utils/FormValidation'
 import { auth } from "../utils/firebase";
 import { createUserWithEmailAndPassword,signInWithEmailAndPassword,updateProfile } from "firebase/auth";
-import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { addUser } from '../utils/userSlice';
 const Login = () => {
-  const Navigate=useNavigate();
   const dispatch=useDispatch();
   const [isSignIn,setIsSignIn]=useState(true);
   const [errorMessage,setErrorMessage]=useState("");
@@ -38,7 +36,6 @@ const Login = () => {
             .then((userCredential) => {
               // Signed up 
               const user = userCredential.user;
-              Navigate("/browse");
               updateProfile(user, {
                 displayName: name.current.value, photoURL: "https://occ-0-2484-3663.1.nflxso.net/dnm/api/v6/vN7bi_My87NPKvsBoib006Llxzg/AAAABTZ2zlLdBVC05fsd2YQAR43J6vB1NAUBOOrxt7oaFATxMhtdzlNZ846H3D8TZzooe2-FT853YVYs8p001KVFYopWi4D4NXM.png?r=229"
               }).then(() => {
@@ -51,7 +48,6 @@ const Login = () => {
                 // An error occurred
                 setErrorMessage(error.message);
               });
-              console.log(user);
             })
             .catch((error) => {
               const errorCode = error.code;
@@ -65,8 +61,6 @@ const Login = () => {
             .then((userCredential) => {
               // Signed in 
               const user = userCredential.user;
-              Navigate("/browse");
-              console.log(user);
             })
             .catch((error) => {
               const errorCode = error.code;
