@@ -14,7 +14,7 @@ const Gptsearchbar = () => {
   }
   const OpenAihandler= async()=>{
     //https://platform.openai.com/docs/libraries
-   /* const gptQuery =
+   const gptQuery =
     "Act as a Movie Recommendation system and suggest some movies for the query : " +
     invalue.current.value +
     ". only give me names of 20 movies, comma seperated like the example result given ahead. Example Result: Gadar, Sholay, Don, Golmaal, Koi Mil Gaya";
@@ -28,12 +28,11 @@ const Gptsearchbar = () => {
     // completion is a string of movies seperated by , like superbad, step brother .
     // we split the string sperated by , into array
     const gptMovies=completion.choices?.[0]?.message?.content.split(",");
-    */
-    const arrays=["superbad","Step Brothers"];
-    const PromiseArray=arrays.map(item=>searchMovie(item));// Returns promises
+    
+    const PromiseArray=gptMovies.map(item=>searchMovie(item));// Returns promises
     const TmdbResults=await Promise.all(PromiseArray);
     console.log(TmdbResults);
-    dispatch(Gpt_Tmdb_Searches({moviesArray:arrays,MovieData:TmdbResults}));
+    dispatch(Gpt_Tmdb_Searches({moviesArray:gptMovies,MovieData:TmdbResults}));
   }
   return (
     <div className='pt-[15%] flex justify-center'>
