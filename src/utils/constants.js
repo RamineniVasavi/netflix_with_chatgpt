@@ -4,8 +4,8 @@ export const TMDB_OPTIONS= {
     method: 'GET',
     headers: {
       accept: 'application/json',
-      Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJiNjc1ZjIzZTRkNGI0NGMyMzZmNzk5MjI2NTM3ZDFhNCIsIm5iZiI6MTczMjAzNjAzNS4yODUxOTkyLCJzdWIiOiI2NzI4YjcxMzI5NzM1ZDZhMDRkYThmN2IiLCJzY29wZXMiOlsiYXBpX3JlYWQiXSwidmVyc2lvbiI6MX0.7nYD8gjGw9iRJSlqy8oK3lKJKvnxaCTe172OHr8Cqf4',
+     // Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJiNjc1ZjIzZTRkNGI0NGMyMzZmNzk5MjI2NTM3ZDFhNCIsIm5iZiI6MTczMjAzNjAzNS4yODUxOTkyLCJzdWIiOiI2NzI4YjcxMzI5NzM1ZDZhMDRkYThmN2IiLCJzY29wZXMiOlsiYXBpX3JlYWQiXSwidmVyc2lvbiI6MX0.7nYD8gjGw9iRJSlqy8oK3lKJKvnxaCTe172OHr8Cqf4',
     }
   };
 export const IMAGE_URL="https://image.tmdb.org/t/p/w500/";
-export const OPENAI_GPTkey="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";
+//export const OPENAI_GPTkey="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";
