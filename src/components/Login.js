@@ -5,6 +5,7 @@ import { auth } from "../utils/firebase";
 import { createUserWithEmailAndPassword,signInWithEmailAndPassword,updateProfile } from "firebase/auth";
 import { useDispatch } from 'react-redux';
 import { addUser } from '../utils/userSlice';
+import { BACKGROUND_IMAGE,USER_LOGO } from "../utils/constants"
 const Login = () => {
   const dispatch=useDispatch();
   const [isSignIn,setIsSignIn]=useState(true);
@@ -37,7 +38,7 @@ const Login = () => {
               // Signed up 
               const user = userCredential.user;
               updateProfile(user, {
-                displayName: name.current.value, photoURL: "https://occ-0-2484-3663.1.nflxso.net/dnm/api/v6/vN7bi_My87NPKvsBoib006Llxzg/AAAABTZ2zlLdBVC05fsd2YQAR43J6vB1NAUBOOrxt7oaFATxMhtdzlNZ846H3D8TZzooe2-FT853YVYs8p001KVFYopWi4D4NXM.png?r=229"
+                displayName: name.current.value, photoURL: USER_LOGO
               }).then(() => {
                 // Profile updated!
                 // once our profile name is updated we need to update our store .
@@ -74,7 +75,7 @@ const Login = () => {
     <div >
     <div className='absolute'>
       <Header />
-      <img src="https://assets.nflxext.com/ffe/siteui/vlv3/7c0e18aa-2c95-474d-802e-7f30e75dcca4/web/IN-en-20241014-TRIFECTA-perspective_e7121311-c11e-4809-a3e6-22abffa33569_small.jpg"  alt="Background image"></img>
+      <img src={BACKGROUND_IMAGE}  alt="Background movies"></img>
     </div>
     <form onClick={(e)=>e.preventDefault()} className='p-10 absolute w-3/12 border border-black  top-[30%] right-[37%] text-white bg-opacity-80 bg-black'>
       <h2 className='font-bold text-3xl mx-2 py-3'>{isSignIn?"Sign In":"Sign Up"}</h2>

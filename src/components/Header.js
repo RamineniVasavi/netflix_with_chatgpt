@@ -7,12 +7,15 @@ import { useNavigate } from 'react-router-dom';
 import { useSelector,useDispatch } from 'react-redux';
 import { onAuthStateChanged } from "firebase/auth";
 import { addUser, removeUser } from '../utils/userSlice'
+import { USER_LOGO } from '../utils/constants'
+import { ToggleGpt } from '../utils/Gptslice'
 const Header = () => {
   const user=useSelector(store=>store.User);
+  const showgpt=useSelector(store=>store.Gpt.ShowGpt);
  const navigate=useNavigate();
  const dispatch=useDispatch();
  useEffect(()=>{
-  onAuthStateChanged(auth, (user) => {
+  const unsubscribe=onAuthStateChanged(auth, (user) => {
     if (user) {
       // User is signed in, see docs for a list of available properties
       // https://firebase.google.com/docs/reference/js/auth.user
@@ -26,6 +29,8 @@ const Header = () => {
       navigate("/");
     }
   });
+    // onAuthStateChanged will return a unsubscribe function . unsubscribe when component unmounts
+    return ()=>unsubscribe();
 },[])
   const handleSignout=()=>{
     signOut(auth).then(() => {
@@ -34,11 +39,15 @@ const Header = () => {
       // An error happened.
     });
   }
+  const Gpthandler=()=>{
+     dispatch(ToggleGpt());
+  }
   return (
-    <div className='absolute flex py-2 h-24 w-screen bg-gradient-to-tr from-black justify-between'>
+    <div className='absolute flex py-2 h-24 w-full text-white bg-gradient-to-tr from-zinc-950 justify-between'>
       <img className='w-40 h-24 mx-10' src={logo} alt="logo"></img>
       {user && <div className='flex h-12 m-4'>
-        <img alt="user icon" src="https://occ-0-2484-3663.1.nflxso.net/dnm/api/v6/vN7bi_My87NPKvsBoib006Llxzg/AAAABTZ2zlLdBVC05fsd2YQAR43J6vB1NAUBOOrxt7oaFATxMhtdzlNZ846H3D8TZzooe2-FT853YVYs8p001KVFYopWi4D4NXM.png?r=229"></img>
+        <button onClick={Gpthandler} className='bg-purple-800 text-white mx-2 px-4 rounded-sm '>{showgpt?"Home":"Gpt Search"}</button>
+        <img alt="user icon" src={USER_LOGO}></img>
          <button className='p-2 hover:underline' onClick={handleSignout}>(Sign Out)</button>
       </div>}
     
