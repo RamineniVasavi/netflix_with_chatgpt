@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux'
 import MovieList from './MovieList';
 
 const GptMovieSuggestions = () => {
-const { moviesArray,MovieData }=useSelector(store=>store.Gpt);
+const { moviesArray,MovieData }=useSelector(store=>store.Gpt);// movies array from gpt and data from tmdb
  if(!moviesArray) return null;
   return (
     <div className='bg-black bg-opacity-90'>

@@ -15,7 +15,7 @@ const Gptsearchbar = () => {
   const OpenAihandler= async()=>{
     //https://platform.openai.com/docs/libraries
    const gptQuery =
-    "Act as a Movie Recommendation system and suggest some movies for the query : " +
+    "Act as a Movie Recommendation system and suggest some movies for the query or find the movie : " +
     invalue.current.value +
     ". only give me names of 20 movies, comma seperated like the example result given ahead. Example Result: Gadar, Sholay, Don, Golmaal, Koi Mil Gaya";
 
@@ -38,7 +38,7 @@ const Gptsearchbar = () => {
     <div className='pt-[15%] flex justify-center'>
     <form className='bg-black p-2 grid grid-cols-12' onSubmit={(e)=>{e.preventDefault()}}>
         <input type="text" ref={invalue} className='p-2 m-4 border col-span-10' placeholder='what would you like to watch?'></input>
-        <button className='bg-red-600 rounded-sm col-span-2 my-4 py-2 mx-4 px-4 ' onClick={OpenAihandler}>Search</button>
+        <button className='bg-red-600 rounded-sm col-span-2 my-4 py-2 mx-4 px-4 search' onClick={OpenAihandler}>Search</button>
     </form>
     </div>
   )

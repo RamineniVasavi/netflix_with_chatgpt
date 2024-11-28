@@ -6,7 +6,7 @@ const SecondContainer = () => {
   console.log(movie.nowPlayingMovies);
   return (
     <div className='bg-black'>
-      <div className='-mt-44 translate-x-0'>
+      <div className='lg:-mt-44 translate-x-0'>
      <MovieList title="Now Playing" movies={movie.nowPlayingMovies}/>
      <MovieList title="Popular" movies={movie.popularmovies}/>
      <MovieList title="Top Rated" movies={movie.TopRatedmovies}/>

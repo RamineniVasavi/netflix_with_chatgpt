@@ -8,4 +8,4 @@ export const TMDB_OPTIONS= {
     }
   };
 export const IMAGE_URL="https://image.tmdb.org/t/p/w500/";
-export const OPENAI_GPTkey="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";
+export const OPENAI_GPTkey="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";

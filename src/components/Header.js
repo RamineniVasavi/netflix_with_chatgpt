@@ -8,7 +8,8 @@ import { useSelector,useDispatch } from 'react-redux';
 import { onAuthStateChanged } from "firebase/auth";
 import { addUser, removeUser } from '../utils/userSlice'
 import { USER_LOGO } from '../utils/constants'
-import { ToggleGpt } from '../utils/Gptslice'
+import { ToggleGpt,Gpt_Tmdb_Searches } from '../utils/Gptslice'
+import Modal from './Modal';
 const Header = () => {
   const user=useSelector(store=>store.User);
   const showgpt=useSelector(store=>store.Gpt.ShowGpt);
@@ -40,17 +41,17 @@ const Header = () => {
     });
   }
   const Gpthandler=()=>{
+    dispatch(Gpt_Tmdb_Searches({}));
      dispatch(ToggleGpt());
   }
   return (
-    <div className='absolute flex py-2 h-24 w-full text-white bg-gradient-to-tr from-zinc-950 justify-between'>
-      <img className='w-40 h-24 mx-10' src={logo} alt="logo"></img>
-      {user && <div className='flex h-12 m-4'>
-        <button onClick={Gpthandler} className='bg-purple-800 text-white mx-2 px-4 rounded-sm '>{showgpt?"Home":"Gpt Search"}</button>
+    <div className='absolute flex   min-[320px]:h-12 py-2 md:h-24 w-full text-white  from-zinc-950 justify-between'>
+      <img className='max-[800px]:pb-6 max-[800px]:h-12 md:h-12 m-4' src={logo} alt="logo"></img>
+      {user && <div className='flex max-[800px]:pb-6 max-[800px]:h-12 md:h-12 m-4'>
+        <button onClick={Gpthandler} className='bg-purple-800 text-white mx-2 md:px-4 rounded-sm '>{showgpt?"Home":"Gpt Search"}</button>
         <img alt="user icon" src={USER_LOGO}></img>
-         <button className='p-2 hover:underline' onClick={handleSignout}>(Sign Out)</button>
+         <button className='md:p-2 hover:underline' onClick={handleSignout}>(Sign Out)</button>
       </div>}
-    
     </div>
   )
 }
