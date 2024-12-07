@@ -45,9 +45,9 @@ const Header = () => {
      dispatch(ToggleGpt());
   }
   return (
-    <div className='absolute flex bg-gradient-to-tr black  max-[800px]:h-[17%] py-2  w-full text-white  from-zinc-950 justify-between'>
-      <img className='max-[800px]:pb-6 max-[800px]:h-12 md:h-12 m-4' src={logo} alt="logo"></img>
-      {user && <div className='flex max-[800px]:pb-6 max-[800px]:h-12 md:h-12 m-4'>
+    <div className='absolute flex bg-gradient-to-tr black h-[80px]  py-2  w-full text-white  from-zinc-950 justify-between'>
+      <img className=' md:h-12 m-4' src={logo} alt="logo"></img>
+      {user && <div className='flex  md:h-12 m-4'>
         <button onClick={Gpthandler} className='bg-purple-800 text-white mx-2 md:px-4 rounded-sm '>{showgpt?"Home":"Gpt Search"}</button>
         <img alt="user icon" src={USER_LOGO}></img>
          <button className='md:p-2 hover:underline' onClick={handleSignout}>(Sign Out)</button>

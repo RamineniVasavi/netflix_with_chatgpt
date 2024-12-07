@@ -35,10 +35,10 @@ const Gptsearchbar = () => {
     dispatch(Gpt_Tmdb_Searches({moviesArray:gptMovies,MovieData:TmdbResults}));
   }
   return (
-    <div className='pt-[15%] flex justify-center'>
+    <div className='pt-[15%] flex justify-center w-[70%] max-[800px]:w-[90%] md:ml-[15%]'>
     <form className='bg-black p-2 grid grid-cols-12' onSubmit={(e)=>{e.preventDefault()}}>
-        <input type="text" ref={invalue} className='p-2 m-4 border col-span-10' placeholder='what would you like to watch?'></input>
-        <button className='bg-red-600 rounded-sm col-span-2 my-4 py-2 mx-4 px-4 search' onClick={OpenAihandler}>Search</button>
+        <input type="text" ref={invalue} className='p-2 m-4 border col-span-10 max-[500px]:mr-[40px] max-[500px]:text-[10px]' placeholder='what would you like to watch?'></input>
+        <button className='bg-red-600 rounded-sm col-span-2 my-4 py-2 mx-4 px-4 max-[1100px]:mx-2 max-[1100px]:px-2  max-[500px]:text-[10px] max-[500px]:-ml-[30px] search' onClick={OpenAihandler}>Search</button>
     </form>
     </div>
   )

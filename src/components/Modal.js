@@ -23,7 +23,7 @@ const Modal = ({ id , onClose}) => {
    },[])
   return (
     <>{ jsondata &&
-   <div className=' overflow-scroll modal fixed inset-0 z-[1000px] -mt-[30rem] w-[50%] max-[1100px]:-mt-[50%] h-[50%] max-[1100px]:h-[30%] max-[800px]:h-[50%] max-[600px]:h-[35%] max-[400px]:h-[150px] ml-[30%] bg-white'>
+   <div className=' overflow-scroll modal fixed inset-0 z-[1000px] -mt-[30rem] w-[50%] max-[1100px]:-mt-[50%] h-[500px] max-[1100px]:h-[350px]  max-[800px]:h-[250px] max-[600px]:h-[180px] max-[400px]:h-[150px] ml-[30%] bg-white'>
       <div className='flex justify-between'>
       <h1 className='text-black text-3xl max-[1100px]:text-xl font-bold mx-4 mt-4 px-4 pt-4'>{jsondata?.original_title}</h1>
       <button className='text-white close px-2 mx-4 my-8 bg-red-500 cursor-pointer' onClick={onClose}>X</button>
