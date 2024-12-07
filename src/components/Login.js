@@ -74,22 +74,22 @@ const Login = () => {
     }
   }
   return (
-    <div >
-      <div className='absolute'>
+    <div  className='flex justify-center'>
+      <div className='absolute items-center'>
         <Header />
-        <img src={BACKGROUND_IMAGE}  alt="Background movies"></img>
+        <img src={BACKGROUND_IMAGE} className='max-[600px]:h-[300px]'  alt="Background movies"></img>
       </div>
-      <form onClick={(e)=>e.preventDefault()} className='p-10 absolute w-3/12 border border-black  top-[30%] right-[37%] text-white bg-opacity-80 bg-black'>
-        <h2 className='font-bold text-3xl mx-2 py-3'>{isSignIn?"Sign In":"Sign Up"}</h2>
+      <form onClick={(e)=>e.preventDefault()} className='min-[700px]:p-10 max-[700px]:p-[2%] max-[700px]:w-[50%] lg:mt-[10%] flex justify-center flex-wrap items-center  absolute md:w-2/6 sm:w-3/6  border border-black  text-white bg-opacity-80 bg-black'>
+        <h2 className='font-bold md:text-3xl mx-2 md:py-3'>{isSignIn?"Sign In":"Sign Up"}</h2>
         {!isSignIn && <>
-        <input ref={name} className='p-3 my-4 mx-2 w-full border border-black rounded-sm bg-gray-600' placeholder='Full Name'></input>
+        <input ref={name} className='min-[700px]:p-[5%] max-[700px]:p-[1%] sm:h-12 mb-[2%] mx-2 w-full border border-black rounded-sm bg-gray-600' placeholder='Full Name'></input>
         <p id="nameerror" className=' mx-2 text-red-500'></p></>
         }
-        <input ref={email} type="text" placeholder='Email Address' className="p-3 my-4 mx-2 w-full border border-black rounded-sm bg-gray-600"></input>
+        <input ref={email} type="text" placeholder='Email Address' className="min-[700px]:p-[5%] max-[700px]:p-[1%] sm:h-12 mb-[2%] mx-2 w-full border border-black rounded-sm bg-gray-600"></input>
         <p id="emailerror" className=' mx-2 text-red-500'></p>
-        <input ref={password} type="password" placeholder='Password' className='p-3 my-4 mx-2 w-full border border-black rounded-sm bg-gray-600'></input>
+        <input ref={password} type="password" placeholder='Password' className='min-[700px]:p-[5%] max-[700px]:p-[1%] sm:h-12 mb-[2%] mx-2 w-full border border-black rounded-sm bg-gray-600'></input>
         <p id="passworderror" className=' mx-2 text-red-500'></p>
-        <button onClick={FormValidator} className='p-3 my-4 mx-2 w-full bg-red-500 rounded-sm'>{isSignIn?"Sign In":"Sign Up"}</button>
+        <button onClick={FormValidator} className='min-[700px]:p-[5%] max-[700px]:p-[1%] sm:h-12 mb-[2%] mx-2 w-full bg-red-500 sm:h-12 rounded-sm'>{isSignIn?"Sign In":"Sign Up"}</button>
         <p className='cursor-pointer hover:underline' onClick={SignHandler}>{isSignIn?"New to Netflix? Sign Up Now":"Already registered? Sign In Now."}</p>
       </form>
     </div>

@@ -10,7 +10,7 @@ if(!poster) return null;
  }
   return (
     <div>
-    <div className='w-36 pr-4'>
+    <div className='w-36 pr-4 max-[800px]:w-[5rem]'>
       <img alt="movie card" onClick={showModalHandler} src={IMAGE_URL+poster}></img>
     </div>
     <div className='fixed '>

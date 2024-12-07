@@ -4,8 +4,8 @@ export const TMDB_OPTIONS= {
     method: 'GET',
     headers: {
       accept: 'application/json',
-      Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJiNjc1ZjIzZTRkNGI0NGMyMzZmNzk5MjI2NTM3ZDFhNCIsIm5iZiI6MTczMjAzNjAzNS4yODUxOTkyLCJzdWIiOiI2NzI4YjcxMzI5NzM1ZDZhMDRkYThmN2IiLCJzY29wZXMiOlsiYXBpX3JlYWQiXSwidmVyc2lvbiI6MX0.7nYD8gjGw9iRJSlqy8oK3lKJKvnxaCTe172OHr8Cqf4',
+      Authorization: `Bearer ${process.env.REACT_APP_TMDB_API_KEY}`,
     }
   };
 export const IMAGE_URL="https://image.tmdb.org/t/p/w500/";
-export const OPENAI_GPTkey="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";
+export const OPENAI_GPTkey=process.env.REACT_APP_OPENAI_GPT_KEY;
